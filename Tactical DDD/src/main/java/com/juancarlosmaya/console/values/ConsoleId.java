@@ -1,4 +1,4 @@
-package com.juancarlosmaya.Console.Values;
+package com.juancarlosmaya.console.values;
 
 import co.com.sofka.domain.generic.Identity;
 
