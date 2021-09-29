@@ -12,7 +12,7 @@ public class Plattform  extends Entity<PlattformId> {
         super(entityId);
         this.plattformName = plattformName;
     }
-    public void UpdateName(Name name)
+    public void updateName(Name name)
     {
         this.plattformName = Objects.requireNonNull(name);
     }

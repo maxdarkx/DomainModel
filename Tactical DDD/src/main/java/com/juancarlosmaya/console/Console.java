@@ -1,11 +1,9 @@
 package com.juancarlosmaya.console;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import com.juancarlosmaya.console.domainevents.CreatedConsole;
 import com.juancarlosmaya.console.values.*;
 
 import java.util.Objects;
-import java.util.Set;
 
 public class Console extends AggregateEvent<ConsoleId>{
 
@@ -34,17 +32,21 @@ public class Console extends AggregateEvent<ConsoleId>{
 
     public void addToSale(ConsoleId consoleId)
     {
+        Objects.requireNonNull(consoleId);
         appendChange(new ConsoleAddedToSale(consoleId)).apply();
     }
 
     public void updatePlattform(Plattform plattform)
     {
+        Objects.requireNonNull(plattform);
         appendChange(new UpdatedPlattform(plattform)).apply();
     }
 
     public void updateAccesory(Accesory accesory)
     {
+        Objects.requireNonNull(accesory);
         appendChange(new UpdatedAccesory(accesory)).apply();
     }
+
 }
 
