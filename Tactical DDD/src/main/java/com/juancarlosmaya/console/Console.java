@@ -1,10 +1,7 @@
 package com.juancarlosmaya.console;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import com.juancarlosmaya.console.events.AddedAccesory;
-import com.juancarlosmaya.console.events.AddedPlattform;
-import com.juancarlosmaya.console.events.CreatedConsole;
-import com.juancarlosmaya.console.events.UpdatedAccesory;
+import com.juancarlosmaya.console.events.*;
 import com.juancarlosmaya.console.values.*;
 
 

@@ -1,14 +1,10 @@
 package com.juancarlosmaya.videogame;
 
 import co.com.sofka.domain.generic.AggregateEvent;
-import com.juancarlosmaya.videogame.events.AddedPlattform;
-import com.juancarlosmaya.videogame.events.UpdatedCompany;
-import com.juancarlosmaya.videogame.events.UpdatedGenre;
-import com.juancarlosmaya.videogame.events.UpdatedPlattform;
+import com.juancarlosmaya.videogame.events.*;
 import com.juancarlosmaya.videogame.values.*;
 
 import java.util.Objects;
-import java.util.Set;
 
 public class Videogame extends AggregateEvent<VideogameId> {
     protected Language language;
@@ -21,6 +17,7 @@ public class Videogame extends AggregateEvent<VideogameId> {
         super(entityId);
         this.language = language;
         this.videogameName = videogameName;
+        appendChange(new CreatedVideogame(entityId, language, videogameName)).apply();
     }
     public void addPlattform(PlattformId entityId, Name plattformName)
     {

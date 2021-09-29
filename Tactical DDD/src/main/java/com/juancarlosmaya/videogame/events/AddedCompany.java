@@ -1,4 +1,4 @@
-package com.juancarlosmaya.videogame;
+package com.juancarlosmaya.videogame.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import com.juancarlosmaya.videogame.values.CompanyId;
