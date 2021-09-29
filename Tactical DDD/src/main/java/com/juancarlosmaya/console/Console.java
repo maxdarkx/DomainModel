@@ -1,10 +1,12 @@
 package com.juancarlosmaya.console;
 
 import co.com.sofka.domain.generic.AggregateEvent;
+import co.com.sofka.domain.generic.DomainEvent;
 import com.juancarlosmaya.console.events.*;
 import com.juancarlosmaya.console.values.*;
 
 
+import java.util.List;
 import java.util.Objects;
 
 public class Console extends AggregateEvent<ConsoleId>{
@@ -20,6 +22,20 @@ public class Console extends AggregateEvent<ConsoleId>{
         this.name = name;
         appendChange(new CreatedConsole(entityId,name)).apply();
     }
+
+
+    private Console (ConsoleId consoleId)
+    {
+        super(consoleId);
+        //subscribe(new ConsoleChange(this));
+    }
+    public static Console from(ConsoleId consoleId, List<DomainEvent> events)
+    {
+        var console = new Console(consoleId);
+        events.forEach(console::applyEvent);
+        return console;
+    }
+
     public void addAccesory(AccesoryId accesoryId, Name name, AccesoryType accesoryType)
     {
         Objects.requireNonNull(accesoryId);
@@ -46,6 +62,20 @@ public class Console extends AggregateEvent<ConsoleId>{
         Objects.requireNonNull(accesory);
         appendChange(new UpdatedAccesory(accesory)).apply();
     }
+
+    public Name name() {
+        return name;
+    }
+
+    public Accesory accesory() {
+        return accesory;
+    }
+
+    public Plattform plattform() {
+        return plattform;
+    }
+
+
 
 }
 
