@@ -19,10 +19,9 @@ public class Console extends AggregateEvent<ConsoleId>{
     public Console(ConsoleId entityId, Name name) {
         super(entityId);
         this.entityId = entityId;
-        this.name = name;
+        this.setName(name);
         appendChange(new CreatedConsole(entityId,name)).apply();
     }
-
 
     private Console (ConsoleId consoleId)
     {
@@ -74,6 +73,8 @@ public class Console extends AggregateEvent<ConsoleId>{
     public Plattform plattform() {
         return plattform;
     }
+
+
 
 
 
